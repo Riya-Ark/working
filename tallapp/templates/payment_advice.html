@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+% load_static %}
+{% block  body %}
+<div class="container-fluid" style="display:flex;">
+<div class="col-sm-12">
+    <div class=row>
+    <div class="col-sm-6">
+        {% for pk in p|slice:":1" %}
+    Ledger: {{pk.amount.particualrs}}
+
+{% endfor %}
+    </div>
+    <div class="col-sm-6" style="text-align:right;">
+        1-Apr-2022
+
+    </div>
+
+
+
+
+</div>
+<div class="row">
+    <div class="col-sm-12" style="text-align:center;">
+      <b>  </b>
+    </div>
+
+</div>
+
+<div class="table-responsive">
+
+<table  class="table table-responsive-md table-hover mt-4">
+ <thead>   <tr>
+    <th>Select</th>
+        <th >
+            Date
+
+        </th>
+        <th>
+            Particulars
+        </th>
+        <th>
+            Vch type:
+
+        </th>
+        <th>
+            Vch No:
+
+        </th>
+        
+        <th>
+            Amount
+            
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {% for pk in p %}
+    
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="bk" name="vehicle" onClick="checkbox();" value={{pk.amount.amount}}>
+        </td>
+        <td>
+            {{pk.date.date}}
+        </td>
+        <td>
+            {{pk.date.account}}
+        </td>
+        <td>
+           {{pk.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+           {{pk.no}}
+        </td>
+        
+        <td >
+            {{pk.amount.amount}}
+        </td>
+    </tr>
+    {% endfor %}
+    
+    <tr>
+       
+        <td class="total-column" colspan="5">
+        Selected Total
+        </td>
+        <td>  <p style="color:white"  id="show" name="vehicle"></p><br></td>
+    </tr>
+    <tr>
+        <td class="total-column" colspan="5">
+        Total
+        </td>
+        <td>
+                   
+          {{sum}}
+        </td>
+        
+    </tr>
+
+</tbody>
+</table>
+
+
+
+</div>
+
+</div>
+</div>
+
+
+
+
+ {% endblock %}

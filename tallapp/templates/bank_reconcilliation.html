@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+% load_static %}
+{% block  body %}
+<div class="container-fluid" style="display:flex;">
+<div class="col-sm-12">
+    <div class=row>
+    <div class="col-sm-6">
+      
+    </div>
+    <div class="col-sm-6" style="text-align:right;">
+        1-Apr-2022
+
+    </div>
+
+
+
+
+</div>
+<div class="row">
+    <div class="col-sm-12" style="text-align:center;">
+      <b>  </b>
+    </div>
+
+</div>
+
+<div class="table-responsive">
+
+<table  class="table table-responsive-md table-hover mt-4">
+ <thead>   <tr>
+   
+        <th >
+            Date
+
+        </th>
+        <th>
+            Particulars
+        </th>
+        <th>
+            Vch type
+
+        </th>
+        <th>
+            Transaction Type
+
+        </th>
+        
+        <th>
+            Instrument no.
+            
+        </th>
+        <th>
+           Bank date
+            
+        </th>
+        <th>
+            Debit
+            
+        </th>
+        <th>
+            Credit
+            
+        </th>
+    </tr>
+</thead>
+<tbody>
+    
+    
+    {% if b.ledger.id == l.id %}
+    
+    
+    <tr>
+       
+        <td>
+        {{b.date.date}}
+        </td>
+        <td>
+        {{b.amount.particualrs}}
+        </td>
+        <td>
+        {{b.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{b.transactiontype.transactiontype}}
+        </td>
+            
+        <td >
+            
+           {{b.instno}}
+        </td>
+        
+            <form method="post" action="">
+                <td>
+                    <input type="date" name="bank_date">
+                </td>
+                </form>
+        
+      
+        <td >
+           {{b.amount.amount}}
+        </td>
+        
+        <td >
+        
+        </td> 
+    </tr>
+    {% elif b.amount.particualrs == l %}
+   
+   
+    
+    
+    <tr>
+       
+        <td>
+        {{b.date.date}}
+        </td>
+        <td>
+        {{b.amount.particualrs}}
+        </td>
+        <td>
+        {{b.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{b.transactiontype.transactiontype}}
+        </td>
+            
+        <td >
+            
+           {{b.instno}}
+        </td>
+      
+        
+            <form method="post" action="">
+                <td>
+                    <input type="date" name="bank_date">
+                </td>
+                </form>
+        
+      
+        <td >
+           {{b.amount.amount}}
+        </td>
+        
+        <td >
+        
+        </td> 
+    </tr>
+    {% endif %}
+    
+    
+       <tr>
+       <td class="total-column" colspan="6" align="right">
+        Balance as per Company Books:
+        </td>
+        <td colspan="2"></td>
+        </tr>
+        <tr>
+        <td class="total-column" colspan="6" align="right"> Amount not reflected in Bank:</td>
+        <td colspan="2"></td>
+        </tr>
+        <tr>
+        <td class="total-column" colspan="6" align="right"> <b>Balance as per Bank:</b>
+        
+        </td>
+        <td>
+                   
+        
+        </td>
+        
+    </tr>
+
+</tbody>
+</table>
+
+
+
+</div>
+
+</div>
+</div>
+
+
+
+
+ {% endblock %}
