@@ -65,8 +65,49 @@
 <tbody>
     
     
+    {% for b in bc %}
     {% if b.ledger.id == l.id %}
     
+    <tr>
+       
+        <td>
+        {{b.date.date}}
+        </td>
+        <td>
+        {{b.amount.particualrs}}
+        </td>
+        <td>
+        {{b.vouchertype.vouchertype}}
+            
+        </td>
+        <td>
+            {{b.transactiontype.transactiontype}}
+        </td>
+            
+        <td >
+            
+           {{b.instno}}
+        </td>
+        
+            <form method="post" action="">
+                <td>
+                    <input type="date" name="bank_date">
+                </td>
+                </form>
+        
+      
+        <td >
+           {{b.amount.amount}}
+        </td>
+        
+        <td >
+        
+        </td> 
+    </tr>
+    
+    
+    
+    {% elif b.amount.particualrs == l.id %}
     
     <tr>
        
@@ -104,49 +145,10 @@
         
         </td> 
     </tr>
-    {% elif b.amount.particualrs == l %}
-   
-   
     
-    
-    <tr>
-       
-        <td>
-        {{b.date.date}}
-        </td>
-        <td>
-        {{b.amount.particualrs}}
-        </td>
-        <td>
-        {{b.vouchertype.vouchertype}}
+    {% endif %}  
             
-        </td>
-        <td>
-            {{b.transactiontype.transactiontype}}
-        </td>
-            
-        <td >
-            
-           {{b.instno}}
-        </td>
-      
-        
-            <form method="post" action="">
-                <td>
-                    <input type="date" name="bank_date">
-                </td>
-                </form>
-        
-      
-        <td >
-           {{b.amount.amount}}
-        </td>
-        
-        <td >
-        
-        </td> 
-    </tr>
-    {% endif %}
+{% endfor %}
     
     
        <tr>
@@ -179,7 +181,6 @@
 
 </div>
 </div>
-
 
 
 

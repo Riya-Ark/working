@@ -7,8 +7,8 @@ from .models import  *
 from django.db.models import Count
 from django.contrib import messages
 import datetime
-import fiscalyear
-from fiscalyear import *
+
+
 from dateutil import relativedelta
 
 
@@ -93,30 +93,26 @@ def reconciliation(request,id):
     pay=payment.objects.all()
     rec=receipt.objects.all()
     cont=bank.objects.filter(vouchertype_id=1)
-    print('hi')
-    print(cont)
-    print('hi')
+    
+    
+    
     led=ledger.objects.get(id=id)
     
-    print(bak)
-    print(led)
+    
     for b in b:
-        if b.ledger.id==led.id:
-            print(b.ledger.id)
-            print(led.id)
+        if b.ledger==led:
+            print(b.ledger)
+            print(led)
             credit[b.id]=b.amount.amount
         else:
-            if b.amount.particualrs==led:
-                print( b.amount.particualrs)
+            if b.amount==led:
+                print( b.amount)
                 print(led)
                 debit[b.id]=b.amount.amount
-    print(credit)
-    print(debit)
 
-    # print(bak.ledger.id)
-    print(led.id)
+    bk=bank.objects.all()
 
-    return render(request,'bank_reconcilliation.html',{'c':con,'p':pay,'r':rec,'b':b,'l':led,'cr':credit,'de':debit})
+    return render(request,'bank_reconcilliation.html',{'bc':bk,'l':led})
 
 def collection(request):
     collect=contra.objects.filter()
