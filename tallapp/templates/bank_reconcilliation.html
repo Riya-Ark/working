@@ -66,7 +66,7 @@
     
     
     {% for b in bc %}
-    {% if b.ledger.id == l.id %}
+    {% if b.ledger == l %}
     
     <tr>
        
@@ -97,17 +97,17 @@
         
       
         <td >
-           {{b.amount.amount}}
+         
         </td>
         
         <td >
-        
+         {{b.amount.amount}}
         </td> 
     </tr>
     
     
     
-    {% elif b.amount.particualrs == l.id %}
+    {% elif b.amount.particualrs == l %}
     
     <tr>
        
@@ -138,14 +138,14 @@
         
       
         <td >
-           {{b.amount.amount}}
+            {{b.amount.amount}}
         </td>
-        
+       
         <td >
         
         </td> 
     </tr>
-    
+
     {% endif %}  
             
 {% endfor %}
@@ -155,16 +155,18 @@
        <td class="total-column" colspan="6" align="right">
         Balance as per Company Books:
         </td>
-        <td colspan="2"></td>
+        <td colspan="2">9000</td>
         </tr>
         <tr>
         <td class="total-column" colspan="6" align="right"> Amount not reflected in Bank:</td>
-        <td colspan="2"></td>
+        <td colspan="1">{{debit}}</td>
+        <td colspan="2">{{credit}}</td>
         </tr>
         <tr>
         <td class="total-column" colspan="6" align="right"> <b>Balance as per Bank:</b>
         
         </td>
+        <td colspan="2">{{bbb}}</td>
         <td>
                    
         

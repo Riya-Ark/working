@@ -93,26 +93,25 @@ def reconciliation(request,id):
     pay=payment.objects.all()
     rec=receipt.objects.all()
     cont=bank.objects.filter(vouchertype_id=1)
-    
-    
-    
+   
+   
     led=ledger.objects.get(id=id)
-    
-    
+    credit=0
+    debit=0
+   
+
     for b in b:
         if b.ledger==led:
-            print(b.ledger)
-            print(led)
-            credit[b.id]=b.amount.amount
-        else:
-            if b.amount==led:
-                print( b.amount)
-                print(led)
-                debit[b.id]=b.amount.amount
-
+           credit=credit+b.amount.amount
+           print(credit)
+        elif b.amount.particualrs==led:
+            debit=debit+b.amount.amount 
+            print(debit)
+                
+    bbb=9000-credit+debit
     bk=bank.objects.all()
-
-    return render(request,'bank_reconcilliation.html',{'bc':bk,'l':led})
+    
+    return render(request,'bank_reconcilliation.html',{'bc':bk,'l':led,'credit':credit,'debit':debit,'bbb':bbb})
 
 def collection(request):
     collect=contra.objects.filter()
