@@ -49,6 +49,10 @@
             
         </th>
         <th>
+            Instrument date.
+            
+        </th>
+        <th>
            Bank date
             
         </th>
@@ -83,12 +87,14 @@
         <td>
             {{b.transactiontype.transactiontype}}
         </td>
-            
+        
         <td >
             
            {{b.instno}}
         </td>
-        
+        <td>
+            {{b.instdate}}
+        </td>  
             <form method="post" action="">
                 <td>
                     <input type="date" name="bank_date">
@@ -124,12 +130,14 @@
         <td>
             {{b.transactiontype.transactiontype}}
         </td>
-            
+        
         <td >
             
            {{b.instno}}
         </td>
-        
+        <td>
+            {{b.instdate}}
+        </td>  
             <form method="post" action="">
                 <td>
                     <input type="date" name="bank_date">
@@ -152,18 +160,18 @@
     
     
        <tr>
-       <td class="total-column" colspan="6" align="right">
+       <td class="total-column" colspan="7" align="right">
         Balance as per Company Books:
         </td>
         <td colspan="2">9000</td>
         </tr>
         <tr>
-        <td class="total-column" colspan="6" align="right"> Amount not reflected in Bank:</td>
+        <td class="total-column" colspan="7" align="right"> Amount not reflected in Bank:</td>
         <td colspan="1">{{debit}}</td>
         <td colspan="2">{{credit}}</td>
         </tr>
         <tr>
-        <td class="total-column" colspan="6" align="right"> <b>Balance as per Bank:</b>
+        <td class="total-column" colspan="7" align="right"> <b>Balance as per Bank:</b>
         
         </td>
         <td colspan="2">{{bbb}}</td>
